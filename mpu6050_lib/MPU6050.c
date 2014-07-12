@@ -220,11 +220,12 @@ void MPU6050_GetRawAccelGyro(s16* AccelGyro)
 {
     u8 tmpBuffer[14];
     MPU6050_I2C_BufferRead(MPU6050_DEFAULT_ADDRESS, tmpBuffer, MPU6050_RA_ACCEL_XOUT_H, 14);
+    int i;
     /* Get acceleration */
-    for (int i = 0; i < 3; i++)
+    for (i = 0; i < 3; i++)
         AccelGyro[i] = ((s16) ((u16) tmpBuffer[2 * i] << 8) + tmpBuffer[2 * i + 1]);
     /* Get Angular rate */
-    for (int i = 4; i < 7; i++)
+    for (i = 4; i < 7; i++)
         AccelGyro[i - 1] = ((s16) ((u16) tmpBuffer[2 * i] << 8) + tmpBuffer[2 * i + 1]);
 
 }
@@ -323,7 +324,7 @@ void MPU6050_I2C_Init()
     /* Configure I2C pins: SCL and SDA */
     GPIO_InitStructure.GPIO_Pin = MPU6050_I2C_SCL_Pin | MPU6050_I2C_SDA_Pin;
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_OD;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
     GPIO_Init(MPU6050_I2C_Port, &GPIO_InitStructure);
 
     /* I2C configuration */

@@ -37,7 +37,8 @@ extern "C" {
 
 /* Includes */
 #include "stm32f4xx.h"
-
+#include "stm32f4xx_conf.h"
+#include "bool.h"
 /**
  * @addtogroup  MPU6050_I2C_Define
  * @{
@@ -48,7 +49,7 @@ extern "C" {
 #define MPU6050_I2C_Port             GPIOB
 #define MPU6050_I2C_SCL_Pin          GPIO_Pin_10
 #define MPU6050_I2C_SDA_Pin          GPIO_Pin_11
-#define MPU6050_I2C_RCC_Port         RCC_APB2Periph_GPIOB
+#define MPU6050_I2C_RCC_Port         GPIOB
 #define MPU6050_I2C_Speed            100000 // 100kHz standard mode
 
 /**
