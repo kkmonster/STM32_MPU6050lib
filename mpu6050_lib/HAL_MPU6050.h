@@ -36,7 +36,7 @@ extern "C" {
 #endif
 
 /* Includes */
-#include "stm32f10x.h"
+#include "stm32f4xx.h"
 
 /**
  * @addtogroup  MPU6050_I2C_Define
